@@ -1,3 +1,19 @@
+<script>
+export default {
+  methods: {
+    scrollLeft() {
+      const carousel = this.$refs.carousel;
+      const scrollAmount = 200; 
+      carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    },
+    scrollRight() {
+      const carousel = this.$refs.carousel;
+      const scrollAmount = 200;
+      carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  }
+}
+</script>
 <template>
   <section>
     <h1 class="text-4xl font-extrabold text-center text-white">Популярные книги</h1>
@@ -15,7 +31,10 @@
         ref="carousel"
       >
         <div class="flex space-x-4">
-          <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 sm:w-60 sm:h-72"></div>
+          <div>
+                      <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 sm:w-60 sm:h-72"></div>
+          </div>
+
           <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 sm:w-60 sm:h-72"></div>
           <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 sm:w-60 sm:h-72"></div>
           <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 sm:w-60 sm:h-72"></div>
@@ -37,22 +56,7 @@
   </section>
 </template>
 
-<script>
-export default {
-  methods: {
-    scrollLeft() {
-      const carousel = this.$refs.carousel;
-      const scrollAmount = 200; 
-      carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    },
-    scrollRight() {
-      const carousel = this.$refs.carousel;
-      const scrollAmount = 200;
-      carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  }
-}
-</script>
+
 
 <style scoped>
 .scrollbar-hidden::-webkit-scrollbar {
