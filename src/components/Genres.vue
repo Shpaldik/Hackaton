@@ -2,7 +2,7 @@
     <section class="mr-40 ml-40">
         <div>
             <h1 class="text-4xl font-extrabold text-center text-white">Жанры</h1>
-            <div class="overflow-x justify-center align-center mt-10">
+            <div class="overflow-x justify-center align-center mt-10 ">
                 <div class="flex space-x-4 translate-x overflow-x-auto">
                     <div class="relative">
                         <img src="/public/Genres/Genres.png" alt="" class="w-full h-auto">
