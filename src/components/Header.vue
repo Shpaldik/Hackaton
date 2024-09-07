@@ -3,7 +3,7 @@
         <div class="flex justify-between items-center p-4 xl:mr-32 xl:ml-32 lg:mr-20 lg:ml-20 text-white">
             <router-link to="/"><img src="/public/logo.png" alt="" width="70" class="hidden md:block"></router-link>
             <div class="md:flex items-center xl:gap-20 sm:gap-10 gap-5 hidden">
-                <router-link to="/"><a class="font-semibold" href="">Каталог</a>    </router-link>     
+                <router-link to="/"><a class="font-semibold" href="">Каталог</a></router-link>     
                 <div class="flex items-center gap-1">
                     <router-link to="/Profile"><a class="font-semibold" href="">Чаты</a></router-link>            
                 </div> 

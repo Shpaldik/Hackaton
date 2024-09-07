@@ -7,14 +7,30 @@ import Home from './pages/Home.vue';
 import Login from './pages/Login.vue';
 import Profile from './pages/Profile.vue';
 import Game from './pages/GamePage.vue';
-import BookDetails from './components/BookDetails.vue'; // Страница книги
+import PopularBooksDetails from './components/PopularBooksDetails.vue'; // Страница книги
+import NoveltiesBooksDetails from './components/NoveltiesBooksDetails.vue';
+import ActuallyBooksDetails from './components/ActuallyBooksDetails.vue';
 
 
 const routes = [
 {
   path: '/book/:id',
   name: 'BookDetails',
-  component: BookDetails,
+  component: PopularBooksDetails,
+  props: true, // Позволяет передавать параметры маршрута как props в компонент
+},
+
+{
+  path: '/novelties/:id',
+  name: 'NoveltiesDetails',
+  component: NoveltiesBooksDetails,
+  props: true, // Позволяет передавать параметры маршрута как props в компонент
+},
+
+{
+  path: '/actually/:id',
+  name: 'ActuallyDetails',
+  component: ActuallyBooksDetails,
   props: true, // Позволяет передавать параметры маршрута как props в компонент
 },
   { path: '/', name: 'Home', component: Home },

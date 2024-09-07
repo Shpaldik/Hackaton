@@ -4,19 +4,22 @@
     <div v-if="!isMobile" class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2">
       <div v-for="item in actuallyBooks" :key="item.id" class="flex">
         <div class="w-full h-full bg-white rounded-2xl border border-primary-lime border-4">
-          <img :src="item.image" width="500" alt="Book Image" class="w-full h-full object-cover rounded-md"/>
+          <img :src="item.image" class="w-full h-full object-cover rounded-md"/>
         </div>
-        <div>
-          <h2 class="text-center font-extrabold text-3xl text-white">{{ item.title }}</h2>
-          <p class="text-white mt-2 text-xl text-center ml-5">{{ item.author }}</p>
-          <p class="text-white mt-2 text-xl text-center ml-5">{{ item.description }}</p>
+        <div class="ml-5 flex flex-col justify-center">
+          <h2 class="font-extrabold text-2xl text-white">{{ item.title }}</h2>
+          <p class="text-white mt-2 text-lg">{{ item.author }}</p>
+          <p class="text-white mt-2 text-lg">{{ item.description }}</p>
+          <router-link :to="`/actually/${item.id}`" class="mt-4 px-4 py-2 bg-primary-lime text-white rounded-full hidden lg:inline-block">
+            Прочитать
+          </router-link>
         </div>
       </div>
     </div>
 
     <div v-else class="relative w-full mt-10">
       <button
-        class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white rounded-full p-2 z-10"
+        class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white rounded-full p-2 z-10"
         @click="scrollLeft"
       >
         <img src="/public/arrow-left.svg" width="30" alt="Left Arrow">
@@ -24,17 +27,20 @@
 
       <Carousel ref="carousel" :items-to-show="1" :wrap-around="true">
         <Slide v-for="item in actuallyBooks" :key="item.id">
-          <div class="w-72 h-96 bg-white rounded-2xl border border-primary-lime border-4 flex flex-col items-center justify-center">
-            <img :src="item.image" alt="Book Image" class="w-full h-48 object-cover rounded-md"/>
-            <h2 class="text-center font-extrabold text-2xl text-white mt-4">{{ item.title }}</h2>
-            <p class="text-white mt-2 text-xl">{{ item.author }}</p>
-            <p class="text-white mt-2 text-xl">{{ item.description }}</p>
-          </div>
+            <img :src="item.image" alt="Book Image" class="w-full h-2/3  rounded-t-md"/>
+            <div class="flex flex-col p-10">
+              <router-link :to="`/book/${item.id}`" class="mb-4 px-4 py-2 bg-primary-lime text-white rounded-full text-center">
+                Прочитать
+              </router-link>
+              <h2 class="font-extrabold text-lg text-white">{{ item.title }}</h2>
+              <p class="text-white mt-1 text-sm">{{ item.author }}</p>
+              <p class="text-white mt-1 text-sm">{{ item.description }}</p>
+            </div>
         </Slide>
       </Carousel>
 
       <button
-        class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white rounded-full p-2 z-10"
+        class="absolute right-0  top-1/2 transform -translate-y-1/2 bg-gray-700 text-white rounded-full p-2 z-10"
         @click="scrollRight"
       >
         <img src="/public/arrow-right.svg" width="30" alt="Right Arrow">
@@ -42,6 +48,7 @@
     </div>
   </section>
 </template>
+
 
 <script>
 import { defineComponent, ref, onMounted } from 'vue'

@@ -8,7 +8,6 @@
         <button class="absolute bottom-5 left-1/2 transform -translate-x-1/2 mt-4 px-4 py-2 bg-primary-lime text-white rounded-full">Прочитать</button>
       </div>
     </div>
-
     <div v-else class="relative w-full mt-10">
       <button
         class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white rounded-full p-2 z-10"
