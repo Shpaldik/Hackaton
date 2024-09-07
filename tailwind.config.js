@@ -11,6 +11,7 @@ export default {
         'primary-lime': '#379777',
         'primary-bg-gray': "#45474B",
         'primary-bg-blackgray': "#262626",
+        'primary-text': "#B9B9B9"
       },
       screens:{
         'sl': '280px',

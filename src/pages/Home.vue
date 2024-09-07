@@ -12,7 +12,7 @@ export default {
         Novelties,
         Genres,
         Actually,
-        Footer
+        Footer,
     }
 }
 </script>

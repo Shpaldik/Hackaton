@@ -1,19 +1,3 @@
-<script>
-export default {
-  methods: {
-    scrollLeft() {
-      const carousel = this.$refs.carousel;
-      const scrollAmount = 200; 
-      carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    },
-    scrollRight() {
-      const carousel = this.$refs.carousel;
-      const scrollAmount = 200;
-      carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  }
-}
-</script>
 <template>
   <section>
     <h1 class="text-4xl font-extrabold text-center text-white">Популярные книги</h1>
@@ -26,25 +10,17 @@ export default {
         <img src="/public/arrow-left.svg" width="40" alt="Left Arrow">
       </button>
 
-      <div
-        class="flex overflow-hidden scrollbar-hidden"
-        ref="carousel"
-      >
-        <div class="flex space-x-4">
-          <div>
-                      <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 sm:w-60 sm:h-72"></div>
+      <Carousel ref="carousel" :autoplay="2000" :items-to-show="6" :wrap-around="true">
+        <Slide v-for="slide in 10" :key="slide">
+          <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 sm:w-60 sm:h-72">
+           
           </div>
+        </Slide>
 
-          <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 sm:w-60 sm:h-72"></div>
-          <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 sm:w-60 sm:h-72"></div>
-          <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 sm:w-60 sm:h-72"></div>
-          <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 sm:w-60 sm:h-72"></div>
-          <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 hidden sm:block sm:w-60 sm:h-72"></div>
-          <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 hidden sm:block sm:w-60 sm:h-72"></div>
-          <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 hidden md:block sm:w-60 sm:h-72"></div>
-          <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 hidden lg:block sm:w-60 sm:h-72"></div>
-        </div>
-      </div>
+        <template #addons>
+          <Navigation />
+        </template>
+      </Carousel>
 
       <button
         class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white rounded-full p-2 z-10"
@@ -56,18 +32,34 @@ export default {
   </section>
 </template>
 
+<script>
+import { defineComponent, ref } from 'vue'
+import { Carousel, Navigation, Slide } from 'vue3-carousel'
+import 'vue3-carousel/dist/carousel.css'
 
+export default defineComponent({
+  name: 'WrapAround',
+  components: {
+    Carousel,
+    Slide,
+    Navigation,
+  },
+  setup() {
+    const carousel = ref(null);
 
-<style scoped>
-.scrollbar-hidden::-webkit-scrollbar {
-  display: none;
-}
+    const scrollLeft = () => {
+      carousel.value.prev(); // Прокрутка влево
+    };
 
-.scrollbar-hidden {
-  scrollbar-width: none;
-}
+    const scrollRight = () => {
+      carousel.value.next(); // Прокрутка вправо
+    };
 
-.scrollbar-hidden {
-  -ms-overflow-style: none;
-}
-</style>
+    return {
+      carousel,
+      scrollLeft,
+      scrollRight,
+    };
+  },
+})
+</script>

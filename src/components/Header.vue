@@ -3,11 +3,12 @@
         <div class="flex justify-between items-center p-4 xl:mr-32 xl:ml-32 lg:mr-20 lg:ml-20 text-white">
             <router-link to="/"><img src="/public/logo.png" alt="" width="70" class="hidden md:block"></router-link>
             <div class="md:flex items-center xl:gap-20 sm:gap-10 gap-5 hidden">
-                <a class="font-semibold" href="">Книги</a>         
+                <a class="font-semibold" href="">Каталог</a>         
                 <div class="flex items-center gap-1">
-                    <router-link to="/Profile"><a class="font-semibold" href="">Клубы</a></router-link>
-                    <img class="hover:rotate-180" src="/public/vector.png" alt="" width="15">
-                </div>
+                    <router-link to="/Profile"><a class="font-semibold" href="">Чаты</a></router-link>
+                    <img class="hover:rotate-180" src="/public/vector.png" alt="" width="15">               
+                </div> 
+                <router-link to="" class="font-semibold">Игра</router-link>
             </div>
 
             <div class="relative flex items-center gap-5">

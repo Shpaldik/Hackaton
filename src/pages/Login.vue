@@ -1,16 +1,18 @@
 <script>
 import Header from '../components/Header.vue';
+import Register from '../components/Register.vue';
 export default {
     components: {
-        Header
+        Header,
+        Register
     }
 }
 </script>
 
 <template>
     <section class="mx-10 lg:mx-40">
-        <Header />
-        <h1 class="text-4xl font-extrabold text-center text-white mt-32">Логин</h1>
+      <Register />
+        <!-- <h1 class="text-4xl font-extrabold text-center text-white mt-32">Логин</h1>
 
         <div class="max-w-md flex items-center justify-center px-4 py-4 mx-auto mt-8 rounded-3xl">
           <div class="max-w-md p-10 rounded-3xl shadow-md" style="background-color: rgba(39, 39, 39, 1);">
@@ -29,6 +31,6 @@ export default {
               </div>
             </form>
            </div>
-          </div>
+          </div> -->
     </section>
 </template>
