@@ -2,12 +2,15 @@
   <section class="mx-4 sm:mx-10 lg:mx-40">
     <h1 class="text-4xl font-extrabold text-center text-white">Новинки</h1>
 
-    <div v-if="!isMobile" class="grid gap-4 mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-      <div v-for="book in noveltiesBooks" :key="book.id" class="relative w-full h-full bg-white rounded-2xl border border-primary-lime border-4 flex flex-col justify-center items-center">
+    <div v-if="!isMobile" class="grid gap-10 mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <div v-for="book in noveltiesBooks" :key="book.id" class="relative bg-white rounded-2xl border border-primary-lime border-4 flex flex-col justify-center items-center">
         <img :src="book.image" alt="Book Image" class="w-full h-64 object-cover rounded-md" />
-        <button class="absolute bottom-5 left-1/2 transform -translate-x-1/2 mt-4 px-4 py-2 bg-primary-lime text-white rounded-full">Прочитать</button>
+        <router-link :to="`/novelties/${book.id}`" class="absolute bottom-5 left-1/2 transform -translate-x-1/2 mt-4 px-4 py-2 bg-primary-lime text-white rounded-full">
+          Прочитать
+        </router-link>
       </div>
     </div>
+
     <div v-else class="relative w-full mt-10">
       <button
         class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white rounded-full p-2 z-10"
@@ -18,9 +21,13 @@
 
       <Carousel ref="carousel" :items-to-show="1" :wrap-around="true">
         <Slide v-for="book in noveltiesBooks" :key="book.id">
-
-          <div class="w-72 h-96 bg-white rounded-2xl border border-primary-lime border-4 flex flex-col items-center justify-center">
-            <img :src="book.image" alt="Book Image" class="w-full h-full object-cover rounded-md" />
+          <div class="relative rounded-2xl flex flex-col items-center p-4 justify-center gap-10">
+            <img :src="book.image" alt="Book Image" class="w-64 h-full object-cover border border-primary-lime border-4 rounded-md hover:transform hover:scale-105 hover:duration-700 hover:z-10000" />
+            <router-link :to="`/novelties/${book.id}`">
+              <button class="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-primary-lime text-white px-4 py-2 rounded-lg">
+                Прочитать
+              </button>
+            </router-link>
           </div>
         </Slide>
       </Carousel>

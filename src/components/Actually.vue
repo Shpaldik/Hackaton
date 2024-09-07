@@ -29,12 +29,12 @@
         <Slide v-for="item in actuallyBooks" :key="item.id">
             <img :src="item.image" alt="Book Image" class="w-full h-2/3  rounded-t-md"/>
             <div class="flex flex-col p-10">
-              <router-link :to="`/book/${item.id}`" class="mb-4 px-4 py-2 bg-primary-lime text-white rounded-full text-center">
+              <router-link :to="`/actually/${item.id}`" class="mb-4 px-4 py-2 bg-primary-lime text-white rounded-full text-center">
                 Прочитать
               </router-link>
               <h2 class="font-extrabold text-lg text-white">{{ item.title }}</h2>
-              <p class="text-white mt-1 text-sm">{{ item.author }}</p>
-              <p class="text-white mt-1 text-sm">{{ item.description }}</p>
+              <p class="text-white mt-1 text-sm">Автор: {{ item.author }}</p>
+              <p class="text-white mt-1 text-sm">Описание: {{ item.description }}</p>
             </div>
         </Slide>
       </Carousel>

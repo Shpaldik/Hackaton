@@ -12,14 +12,14 @@
 
       <Carousel ref="carousel" :items-to-show="isMobile ? 1 : 5" :wrap-around="true">
         <Slide v-for="book in popularBooks.slice(0, 12)" :key="book.id">
-          <div class="relative rounded-2xl flex flex-col items-center p-4 justify-center gap-10">
+         <div class="relative rounded-2xl flex flex-col items-center p-4 justify-center gap-10">
             <img :src="book.image" alt="Book Image" class="w-64 h-full object-cover border border-primary-lime border-4 rounded-md hover:transform hover:scale-105 hover:duration-700 hover:z-10000" />
             <router-link :to="`/book/${book.id}`">
               <button class="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-primary-lime text-white px-4 py-2 rounded-lg">
                 Прочитать
               </button>
             </router-link>
-          </div>
+          </div> 
         </Slide>
 
         <template #addons>
