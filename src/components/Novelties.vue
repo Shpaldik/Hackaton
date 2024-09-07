@@ -1,7 +1,6 @@
 <template>
   <section class="mx-4 sm:mx-10 lg:mx-40">
     <h1 class="text-4xl font-extrabold text-center text-white">Новинки</h1>
-
     <div v-if="!isMobile" class="grid gap-10 mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       <div v-for="book in noveltiesBooks" :key="book.id" class="relative bg-white rounded-2xl border border-primary-lime border-4 flex flex-col justify-center items-center">
         <img :src="book.image" alt="Book Image" class="w-full h-64 object-cover rounded-md" />

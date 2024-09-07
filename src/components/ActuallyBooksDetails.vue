@@ -1,14 +1,22 @@
 <template>
+  <div>
     <Header />
-    <div v-if="book" class="book-detail">
-      <h1 class="text-4xl font-bold mt-20">{{ book.title }}</h1>
-      <p class="text-xl text-gray-600">Автор: {{ book.author }}</p>
-      <img :src="book.image" alt="Book Image" class="w-64 h-96 object-cover mt-4" />
+    <router-link
+      class="text-2xl font-bold text-primary-lime mt-20 p-3 rounded absolute top-4 left-4 z-10"
+      to="/"
+    >
+      < Назад
+    </router-link>
+    <div v-if="book" class="book-detail mt-16 text-white">
+      <h1 class="text-4xl font-bold mt-36 ">{{ book.title }}</h1>
+      <p class="text-xl text-white">Автор: {{ book.author }}</p>
+      <img :src="book.image" alt="Book Image" class="w-64 h-96 object-cover mt-4 mx-auto" />
     </div>
     <div v-else>
       <p>Загрузка книги...</p>
     </div>
-  </template>
+  </div>
+</template>
   
   <script>
   import axios from 'axios';
