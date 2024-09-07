@@ -8,7 +8,7 @@
                     <router-link to="/Profile"><a class="font-semibold" href="">Чаты</a></router-link>
                     <img class="hover:rotate-180" src="/public/vector.png" alt="" width="15">               
                 </div> 
-                <router-link to="" class="font-semibold">Игра</router-link>
+                <router-link to="/GamePage" class="font-semibold">Игра</router-link>
             </div>
 
             <div class="relative flex items-center gap-5">
