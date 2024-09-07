@@ -10,7 +10,7 @@
         <img src="/public/arrow-left.svg" width="40" alt="Left Arrow">
       </button>
 
-      <Carousel ref="carousel" :autoplay="2000" :items-to-show="6" :wrap-around="true">
+      <Carousel ref="carousel" :items-to-show="6" :wrap-around="true">
         <Slide v-for="slide in 10" :key="slide">
           <div class="w-48 h-60 bg-white rounded-2xl border border-primary-lime border-4 sm:w-60 sm:h-72">
            
