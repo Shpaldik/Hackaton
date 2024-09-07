@@ -4,7 +4,6 @@
 
     <div v-if="!isMobile" class="grid gap-4 mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       <div v-for="book in noveltiesBooks" :key="book.id" class="relative w-full h-full bg-white rounded-2xl border border-primary-lime border-4 flex flex-col justify-center items-center">
-        <!-- Увеличенная высота карточек -->
         <img :src="book.image" alt="Book Image" class="w-full h-64 object-cover rounded-md" />
         <button class="absolute bottom-5 left-1/2 transform -translate-x-1/2 mt-4 px-4 py-2 bg-primary-lime text-white rounded-full">Прочитать</button>
       </div>
