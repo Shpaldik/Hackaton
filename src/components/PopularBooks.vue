@@ -14,7 +14,11 @@
         <Slide v-for="book in popularBooks.slice(0, 12)" :key="book.id">
           <div class="relative w-72 h-96 bg-white rounded-2xl border border-primary-lime border-4 flex flex-col items-center justify-center gap-10">
             <img :src="book.image" alt="Book Image" class="w-full h-full object-cover rounded-md" />
-            <button class="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-primary-lime text-white px-4 py-2 rounded-lg">Прочитать</button>
+            <router-link :to="`/book/${book.id}`">
+              <button class="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-primary-lime text-white px-4 py-2 rounded-lg">
+                Прочитать
+              </button>
+            </router-link>
           </div>
         </Slide>
 
@@ -59,26 +63,23 @@ export default defineComponent({
       carousel.value.next();
     };
 
-    // Определение мобильного устройства
     const checkIsMobile = () => {
-      isMobile.value = window.innerWidth <= 768; // Проверка для мобильных устройств
+      isMobile.value = window.innerWidth <= 768;
     };
 
-    // Загрузка данных с API
     const fetchPopularBooks = async () => {
       try {
         const response = await axios.get('https://92668c1f511f5d8f.mokky.dev/PopularBooks');
-        popularBooks.value = response.data; // Сохранение данных в ref
+        popularBooks.value = response.data;
       } catch (error) {
         console.error('Error fetching books:', error);
       }
     };
 
-    // При монтировании компонента проверяем мобильное устройство и загружаем книги
     onMounted(() => {
       fetchPopularBooks();
       checkIsMobile();
-      window.addEventListener('resize', checkIsMobile); // Для отслеживания изменений размера экрана
+      window.addEventListener('resize', checkIsMobile);
     });
 
     return {

@@ -7,8 +7,16 @@ import Home from './pages/Home.vue';
 import Login from './pages/Login.vue';
 import Profile from './pages/Profile.vue';
 import Game from './pages/GamePage.vue';
+import BookDetails from './components/BookDetails.vue'; // Страница книги
+
 
 const routes = [
+{
+  path: '/book/:id',
+  name: 'BookDetails',
+  component: BookDetails,
+  props: true, // Позволяет передавать параметры маршрута как props в компонент
+},
   { path: '/', name: 'Home', component: Home },
   { path: '/Login', name: 'Login', component: Login },
   { path: '/Profile', name: 'Profile', component: Profile },
