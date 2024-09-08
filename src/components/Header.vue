@@ -1,5 +1,5 @@
 <template>
-    <header class="fixed top-0 left-0 z-50 bg-primary-gray w-full">
+    <header class="relative top-0 left-0 z-50 bg-primary-gray w-full">
         <div class="flex justify-between items-center p-4 xl:mr-32 xl:ml-32 lg:mr-20 lg:ml-20 text-white">
             <router-link to="/"><img src="/public/logo.png" alt="" width="70" class="hidden md:block"></router-link>
             <div class="md:flex items-center xl:gap-20 sm:gap-10 gap-5 hidden">
@@ -28,21 +28,59 @@
                 </div>
             </router-link>
         </div>
+
+        <Modal
+            v-if="isModalVisible"
+            :isVisible="isModalVisible"
+            :books="similarBooks"
+            @close="closeModal"
+            class="modal"
+        />
     </header>
 </template>
 
 <script>
+import Modal from './Modal.vue';
+import axios from 'axios';
+
 export default {
+    components: {
+        Modal
+    },
     data() {
         return {
-            searchQuery: ''
-        }
+            searchQuery: '',
+            similarBooks: [],
+            isModalVisible: false
+        };
     },
     methods: {
-        searchBooks() {
-            this.$emit('search', this.searchQuery);
+        async searchBooks() {
+            if (this.searchQuery.length === 0) {
+                this.isModalVisible = false;
+                this.similarBooks = [];
+                return;
+            }
+            
+            try {
+                const response = await axios.get(`https://93d1e12435ab55e6.mokky.dev/Search?title=*${this.searchQuery}`);
+                this.similarBooks = response.data;
+                this.isModalVisible = this.similarBooks.length > 0;
+            } catch (error) {
+                console.error("Ошибка при поиске книг:", error);
+                this.isModalVisible = false;
+            }
+        },
+        closeModal() {
+            this.isModalVisible = false;
         }
-    },
-    
-}
+    }
+};
 </script>
+
+<style scoped>
+.modal {
+    @apply absolute bg-primary-gray bottom-[-100%] left-[0px] ml-[770px] h-[400px] right-0 top-[57px] z-[60] max-w-[375px] w-full max-h-[600px] overflow-auto scrollbar-thin scrollbar-thumb-primary-lime scrollbar-track-gray-800;
+}
+</style>
+

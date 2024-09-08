@@ -11,8 +11,10 @@
       </div>
       <div class="bookDesk">
         <div class="bookName">
-          <h1 class="text-[36px] text-white">{{ book.title }}</h1>
+          <h1 class="text-[36px] text-white font-bold text-4xl mt-10">{{ book.title }}</h1>
           <p class="text-[25px] text-white">Автор: {{ book.author }}</p>
+          <p class="text-[25px] text-white">Описание: </p>
+          <span class="text-white">{{ book.description }}</span>
         </div>
         <div class="addPlaylist">
           <button class="w-[25px] h-[25px] rounded-full border-[1px] border-primary-lime text-primary-lime bg-transperent button text-[20px]">+</button>
