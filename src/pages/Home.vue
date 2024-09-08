@@ -1,7 +1,7 @@
 <template>
     <div>
       <Header @search="handleSearch" />
-      <PopularBooks class="mt-28" />
+      <PopularBooks class="mt-10" />
       <Novelties class="mt-10" />
       <Genres class="mt-10" />
       <Actually class="mt-10" />

@@ -1,16 +1,16 @@
 <template>
   <section class="mx-4 lg:mx-40">
     <h1 class="text-4xl font-extrabold text-center text-white">Актуально</h1>
-    <div v-if="!isMobile" class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2">
-      <div v-for="item in actuallyBooks" :key="item.id" class="flex">
-        <div class="w-full h-full bg-white rounded-2xl border border-primary-lime border-4">
+    <div v-if="!isMobile" class="mt-10 w-full flex items-center flex-wrap">
+      <div v-for="item in actuallyBooks" :key="item.id" class="flex w-[50%] mb-[15px]">
+        <div class="w-[250px] h-[300px] bg-white rounded-2xl">
           <img :src="item.image" class="w-full h-full object-cover rounded-md"/>
         </div>
-        <div class="ml-5 flex flex-col justify-center">
+        <div class="ml-5 flex flex-col justify-center w-[75%]">
           <h2 class="font-extrabold text-2xl text-white">{{ item.title }}</h2>
           <p class="text-white mt-2 text-lg">{{ item.author }}</p>
           <p class="text-white mt-2 text-lg">{{ item.description }}</p>
-          <router-link :to="`/actually/${item.id}`" class="mt-4 px-4 py-2 bg-primary-lime text-white rounded-full hidden lg:inline-block">
+          <router-link :to="`/actually/${item.id}`" class="mt-4 w-fit px-4 py-2 bg-primary-lime text-white rounded-full hidden lg:inline-block">
             Прочитать
           </router-link>
         </div>
