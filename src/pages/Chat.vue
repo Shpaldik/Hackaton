@@ -42,7 +42,7 @@
                 type="file"
                 ref="imageInput"
                 class="hidden"
-                accept="image/png, image/jpeg"
+                accept="image/png, image/jpeg, pdf"
                 @change="sendImage"
               />
               <img class="absolute left-8 z-10 cursor-pointer" src="/public/icons/file.svg" alt="attach" width="20" @click="triggerImageUpload" />
