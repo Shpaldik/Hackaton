@@ -1,0 +1,23 @@
+.pageContainer{
+    @apply w-[60%] flex justify-center mt-20 mx-auto gap-[50px];
+  }
+.book{
+    @apply flex flex-col gap-[30px];
+}
+.bookImg{
+    @apply w-[250px] h-[400px];
+    img{
+        @apply w-full h-full object-cover rounded-xl;
+    }
+}
+
+.bookDesk{
+    @apply flex flex-col gap-3;
+}
+.bookName{
+    @apply flex flex-col gap-[5px] border-b-[1px] border-primary-lime;
+}
+
+.addPlaylist{
+    @apply flex items-center gap-2 ;
+}

@@ -27,9 +27,9 @@ export default {
 </template>
 
 <style>
-body {
+/* body {
   font-family: 'Epilogue';
-}
+} */
 input,
 textarea,
 button,
