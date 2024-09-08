@@ -5,7 +5,7 @@
             <div class="md:flex items-center xl:gap-20 sm:gap-10 gap-5 hidden">
                 <router-link to="/"><a class="font-semibold" href="">Каталог</a></router-link>     
                 <div class="flex items-center gap-1">
-                    <router-link to="/Profile"><a class="font-semibold" href="">Чаты</a></router-link>            
+                    <router-link to="/Chat"><a class="font-semibold" href="">Чаты</a></router-link>            
                 </div> 
                 <router-link to="/GamePage" class="font-semibold">Игра</router-link>
             </div>
