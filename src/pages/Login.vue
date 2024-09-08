@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section v-if="step === 1" class="registrationPage">
+    <section  class="registrationPage">
       <div class="backBtn">
         <div class="backIcon" @click="navigateToLogin" >
           <img src="/public/chevronLeft.svg" alt="Not Found" />
@@ -10,25 +10,19 @@
       <section class="login-page2">
         <div class="leftSection">
           <h2 class="h2">
-            Создать аккаунт
+            Войти в аккаунт
           </h2>
           <input
             type="text"
             class="input"
-            placeholder="Введите адрес почты"
+            placeholder="Введите логин"
             v-model="email"
-          />
-          <input
-            type="text"
-            class="input"
-            placeholder="Придумай логин"
-            v-model="username"
           />
           <div class="inputBoxPassword">
             <input
               :type="visible ? 'text' : 'password'"
               class="inputPassword"
-              placeholder="Создай пароль"
+              placeholder="Введи пароль"
               v-model="password"
             />
             <div class="checkPassword" @click="toggleVisibility">
@@ -39,56 +33,9 @@
               />
             </div>
           </div>
-
-          <div class="inputBoxPassword">
-            <input
-              :type="visible2 ? 'text' : 'password'"
-              class="inputPassword"
-              placeholder="Повтори пароль"
-              v-model="rePassword"
-            />
-            <div class="checkPassword" @click="toggleVisibility2">
-              <img
-                :src="visible2 ? '/public/eyeOpen.svg' : '/public/eye.svg'"
-                alt="Not Found"
-                class="img"
-              />
-            </div>
-          </div>
-          <button class="button" @click="regBtn">Далее</button>
-        </div>
-      </section>
-    </section>
-
-    <section v-if="step === 2" class="registrationPage">
-      <div class="backBtn">
-        <div class="backIcon" @click="backFun">
-          <img src="/public/chevronLeft.svg" alt="Not Found" />
-        </div>
-        <p class="back">Назад</p>
-      </div>
-      <section class="login-page2">
-        <div class="leftSection">
-          <h2 class="h2">
-            Введи 4-значный код, <br />
-            высланный на <br /> {{ email }}
-          </h2>
-          <div class="verifyCodeBox">
-              <input
-              v-for="(code, index) in codes"
-              :key="index"
-              ref="inputRefs[index]"
-              class="inputVerifyCode"
-              type="text"
-              maxlength="1"
-              v-model="codes[index]"
-              @change="handleChange(index, $event)"
-              @keydown.delete="handleKeyDown(index, $event)"
-              :style="{ border: verificationStatus === 'error' ? '1px solid red' : '' }"
-              />            
-          </div>
-          <button class="button verify-btn" @click="handleSubmit">Подтвердить</button>
-        <p class="send-again" @click="reSendCode">Выслать код повторно</p>
+          <button class="button" @click="logBtn">Далее</button>
+          <p class="text-white text-[20px] text-center">Ещё нет аккаунта?</p>
+          <button class="button" @click="regBtn">Регистрация</button>
         </div>
       </section>
     </section>
@@ -109,26 +56,17 @@ export default {
     const verificationStatus = ref('');
     const visible = ref(false);
     const visible2 = ref(false);
-    const step = ref(1);
-    const codes = ref(['', '', '', '']);
-    const inputRefs = ref([null, null, null, null]);
+    // const step = ref(1);
+    // const codes = ref(['', '', '', '']);
+    // const inputRefs = ref([null, null, null, null]);
 
     function navigateToLogin() {
       router.push('/')
     }
-  const handleChange = (index, event) => {
-    const value = event.target.value;
-    codes.value[index] = value;
-    if (value && index < inputRefs.value.length - 1) {
-      inputRefs.value[index + 1].focus();
+    const regBtn = () => {
+      router.push('/register')
     }
-  };
-
-  const handleKeyDown = (index, event) => {
-    if (event.key === 'Backspace' && index > 0 && !codes.value[index]) {
-      inputRefs.value[index - 1].focus();
-    }
-  };
+  
 
     const toggleVisibility = () => {
       visible.value = !visible.value;
@@ -142,8 +80,8 @@ export default {
       step.value = 1; // Переключение на шаг 1
     };
 
-    const regBtn = () => {
-      step.value = 2;
+    const logBtn = () => {
+
       // if (email.value && password.value && rePassword.value) {
       //   step.value = 2; // Переключение на шаг 2
       // } else {
@@ -159,14 +97,11 @@ export default {
       verificationStatus,
       visible,
       visible2,
-      step,
-      codes,
-      regBtn,
+      logBtn,
       backFun,
+      regBtn,
       toggleVisibility,
       toggleVisibility2,
-      handleKeyDown,
-      handleChange,
       navigateToLogin
     };
   },
@@ -398,7 +333,7 @@ body{
     border: 1px solid #292929;
 }
 
-h1, h2, h3, h4, h5, h6, p, span, .link{
+h1, h2, h3, h4, h5, h6, span, .link{
     color: #212121;
     font-weight: 500;
 }

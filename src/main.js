@@ -11,9 +11,12 @@ import Chat from './pages/Chat.vue';
 import PopularBooksDetails from './components/PopularBooksDetails.vue';
 import NoveltiesBooksDetails from './components/NoveltiesBooksDetails.vue';
 import ActuallyBooksDetails from './components/ActuallyBooksDetails.vue';
+import Register from './pages/Register.vue';
 
 
 const routes = [
+
+{ path: '/register', name: 'Register', component: Register },
 {
   path: '/book/:id',
   name: 'BookDetails',
