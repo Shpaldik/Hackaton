@@ -12,9 +12,12 @@ import PopularBooksDetails from './components/PopularBooksDetails.vue';
 import NoveltiesBooksDetails from './components/NoveltiesBooksDetails.vue';
 import ActuallyBooksDetails from './components/ActuallyBooksDetails.vue';
 import Register from './pages/Register.vue';
+import FavoriteBooks from './pages/FavoriteBooks.vue';
 
 
 const routes = [
+
+{ path: '/favoriteBooks', name: 'FavoriteBooks', component: FavoriteBooks },
 
 { path: '/register', name: 'Register', component: Register },
 {
